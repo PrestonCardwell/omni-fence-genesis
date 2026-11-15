@@ -1,5 +1,3 @@
-import * as React from "react";
-import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -7,13 +5,6 @@ import { MapPin, Phone, Clock, CheckCircle, Star } from "lucide-react";
 import ShortQuoteForm from "@/components/ShortQuoteForm";
 import { BUSINESS } from '@/config/business';
 const Locations = () => {
-  useEffect(() => {
-    document.title = "Service Areas | Tulsa, Broken Arrow, Owasso & More | Omni Fence";
-    const metaDescription = document.querySelector('meta[name="description"]');
-    if (metaDescription) {
-      metaDescription.setAttribute('content', 'Omni Fence serves Tulsa and surrounding Oklahoma communities including Broken Arrow, Owasso, Bixby, Jenks, Sand Springs, Sapulpa, Claremore, and more. Contact us for service in your area.');
-    }
-  }, []);
 
   // Primary service locations - most work happens within 50-100 miles of Tulsa
   const locations = [{
@@ -162,12 +153,12 @@ We also serve communities and rural areas within our service radius not listed b
               <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-8 gap-y-4">
                 {locations.map((location) => <div key={location.id} className="flex items-center slide-up delay-300">
                     <MapPin className="h-4 w-4 text-primary mr-3 flex-shrink-0" />
-                    <span className={`font-medium ${location.isHeadquarters ? 'text-primary font-semibold' : 'text-gray-700'}`}>
+                    <Link to={`/locations/${location.id}`} className={`font-medium hover:text-primary hover:underline ${location.isHeadquarters ? 'text-primary font-semibold' : 'text-gray-700'}`}>
                       {location.city}
                       {location.isHeadquarters && <Badge className="ml-2 bg-primary text-white text-xs px-2 py-0.5">
                           HQ
                         </Badge>}
-                    </span>
+                    </Link>
                   </div>)}
               </div>
             </div>

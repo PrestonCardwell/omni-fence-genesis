@@ -5,11 +5,6 @@ const Quote = () => {
   const [hasError, setHasError] = React.useState(false);
 
   React.useEffect(() => {
-    document.title = "Get a Free Quote | Omni Fence and Deck | Tulsa OK";
-    const metaDescription = document.querySelector('meta[name="description"]');
-    if (metaDescription) {
-      metaDescription.setAttribute('content', 'Request a free fence or deck installation quote from Omni Fence and Deck in Tulsa, Oklahoma. Fast response, professional service, competitive pricing.');
-    }
 
     // Load Tally script if not already loaded
     const script = document.createElement('script');
